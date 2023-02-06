@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
-const VolunteerAdSchema = new mongoose.Schema(
+const VolunteerAdSchema = new Schema(
   {
-    organizerCoordinator: {
-      type: Schema.Types.ObjectId,
-      ref: 'Coordinator',
-    },
+    // organizerCoordinator: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'Coordinator',
+    // },
     title: {
       type: String,
       require: true,
@@ -39,4 +39,7 @@ const VolunteerAdSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('VolunteerAdSchema', VolunteerAdSchema);
+export const VolunteerAd = mongoose.model(
+  'VolunteerAdSchema',
+  VolunteerAdSchema
+);
