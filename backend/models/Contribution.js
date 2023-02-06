@@ -11,7 +11,7 @@ const Contribution = new mongoose.Schema(
       require: true,
     },
     contributionPreferences: {
-      type: Array[Preference],
+      type: Array[{ type: Schema.Types.ObjectId, ref: 'Preference' }],
     },
     textArea: {
       type: String,

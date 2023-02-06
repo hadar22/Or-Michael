@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-import Coordinator from './Coordinator';
-import Preference from './Preference';
 
 const Volunteer = new mongoose.Schema(
   {
@@ -25,10 +23,11 @@ const Volunteer = new mongoose.Schema(
       type: String,
     },
     volunteerPreferences: {
-      type: Array[Preference],
+      type: Array[{ type: Schema.Types.ObjectId, ref: 'Preference' }],
     },
     responsibleCoordinator: {
-      type: Coordinator,
+      type: Schema.Types.ObjectId,
+      ref: 'Coordinator',
     },
   },
   {

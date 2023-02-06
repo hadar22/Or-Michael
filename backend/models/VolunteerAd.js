@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
-import Coordinator from './Coordinator';
 
 const VolunteerAdSchema = new mongoose.Schema(
   {
     organizerCoordinator: {
-      type: Coordinator,
+      type: Schema.Types.ObjectId,
+      ref: 'Coordinator',
     },
     title: {
       type: String,
