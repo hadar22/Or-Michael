@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import Preference from './Preference';
 
 const Hospitalized = new mongoose.Schema(
   {
@@ -29,10 +28,11 @@ const Hospitalized = new mongoose.Schema(
     },
 
     hospitalizedPreferences: {
-      type: Array[Preference],
+      type: Array[{ type: Schema.Types.ObjectId, ref: 'Preference' }],
     },
     responsibleCoordinator: {
-      type: Coordinator,
+      type: Schema.Types.ObjectId,
+      ref: 'Coordinator',
     },
   },
   {
