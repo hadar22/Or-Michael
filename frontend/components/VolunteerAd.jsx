@@ -8,9 +8,7 @@ const VolunteerAd = ({
   describe,
   volunteersNumber,
 }) => {
-  return <div>
-    
-  </div>;
+  return <div></div>;
 };
 
 export default VolunteerAd;
