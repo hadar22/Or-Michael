@@ -1,6 +1,5 @@
 import express from 'express';
 const router = express.Router();
-
 import {
   createNewVolunteerAd,
   getAllVolunteerAds,
@@ -9,12 +8,10 @@ import {
   deleteVolunteerAd,
 } from '../controllers/volunteer_ad.js';
 
-router.route('/').post(createNewVolunteerAd).get(getAllVolunteerAds);
-
-router
-  .route('/:id')
-  .get(getVolunteerAd)
-  .patch(updateVolunteerAd)
-  .delete(deleteVolunteerAd);
+router.post('/', createNewVolunteerAd);
+router.get('/', getAllVolunteerAds);
+router.get('/:id', getVolunteerAd);
+router.patch('/:id', updateVolunteerAd);
+router.delete('/:id', deleteVolunteerAd);
 
 export default router;

@@ -1,6 +1,6 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
-const VolunteerAdSchema = new Schema(
+const VolunteerAdSchema = new mongoose.Schema(
   {
     // organizerCoordinator: {
     //   type: Schema.Types.ObjectId,
@@ -17,7 +17,6 @@ const VolunteerAdSchema = new Schema(
 
     volunteeringDate: {
       type: Date,
-      require: true,
     },
 
     describe: {
