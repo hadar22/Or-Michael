@@ -6,6 +6,7 @@ import coordinator from './routes/coordinator.js';
 
 const app = express();
 dotenv.config();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

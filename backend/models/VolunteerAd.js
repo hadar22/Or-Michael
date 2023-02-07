@@ -29,9 +29,8 @@ const VolunteerAdSchema = new mongoose.Schema(
     volunteersNumber: {
       type: Number,
     },
-    missingVolunteersNumber: {
-      type: Number,
-    },
+    //how many volunteers missing
+    volunteers: [{ type: mongoose.Types.ObjectId, ref: 'VolunteerSchema' }],
   },
   {
     timestamps: true,

@@ -16,13 +16,13 @@ const getAllVolunteerAds = async (req, res) => {
 const getVolunteerAd = async (req, res, next) => {
   try {
     const { id: volunteer_adID } = req.params;
-    const volunteer_ad = await VolunteerAd.findOne({ _id: taskID });
+    const volunteer_ad = await VolunteerAd.findOne({ _id: volunteer_adID });
     if (!volunteer_ad) {
       return next(
         createCustomError(`No volunteer ad with id: ${volunteer_adID}`, 404)
       );
     }
-    res.status(200).json({ volunteer_ads });
+    res.status(200).json({ volunteer_ad });
   } catch (error) {
     res.status(400).json({ error });
   }

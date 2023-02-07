@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Volunteer = new mongoose.Schema(
+const VolunteerSchema = new mongoose.Schema(
   {
     fullName: {
       type: String,
@@ -35,4 +35,4 @@ const Volunteer = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Volunteer', Volunteer);
+export const Volunteer = mongoose.model('VolunteerSchema', VolunteerSchema);
