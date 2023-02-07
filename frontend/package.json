@@ -1,6 +1,5 @@
 {
   "name": "frontend",
-  "description": "app frontend of Or-Michael ",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "author": "Junior's Group - Daniel, Hadar, Dan, Omer, Chasi.",
     "@next/font": "13.1.6",
     "next": "13.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
