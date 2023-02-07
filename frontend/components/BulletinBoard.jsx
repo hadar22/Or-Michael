@@ -1,15 +1,18 @@
 import React from 'react';
-import { VolunteerAd } from './VolunteerAd';
+// import { VolunteerAd } from './VolunteerAd';
 
 const BulletinBoard = ({ volunteer_ads }) => {
   return (
     <>
-      <div>Searchbar component</div>
+      <div className="flex flex-col">
+        <div>Searchbar component</div>
 
-      <div>
-        {volunteer_ads.map((ad) => {
+        <div>
+          BulletinBoard
+          {/* {volunteer_ads.map((ad) => {
           <VolunteerAd prop={ad} />;
-        })}
+        })} */}
+        </div>
       </div>
     </>
   );
