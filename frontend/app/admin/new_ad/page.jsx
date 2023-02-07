@@ -33,7 +33,7 @@ const page = () => {
             <Input placeholder_text="תאריך" />
           </div>
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <Selector options={['תל-השומר', 'הלל-יפה', 'איכילוב']} />
+            <Selector options={['הדסה', 'תל-השומר', 'הלל-יפה', 'איכילוב']} />
           </div>
         </div>
       </form>
