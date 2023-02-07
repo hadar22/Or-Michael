@@ -31,8 +31,8 @@ mongoose
   .then(console.log(`Connected to MongoDB ✅`))
   .catch((error) => console.log(` ❌MongoDB connection error: ${error}`));
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log('db connected');
-});
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function () {
+//   console.log('db connected');
+// });
