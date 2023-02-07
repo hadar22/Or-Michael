@@ -23,11 +23,11 @@ const Volunteer = new mongoose.Schema(
       type: String,
     },
     volunteerPreferences: {
-      type: Array[{ type: Schema.Types.ObjectId, ref: 'Preference' }],
+      type: Array[{ type: mongoose.Types.ObjectId, ref: 'Preference' }],
     },
     responsibleCoordinator: {
-      type: Schema.Types.ObjectId,
-      ref: 'Coordinator',
+      type: mongoose.Types.ObjectId,
+      ref: 'CoordinatorSchema',
     },
   },
   {

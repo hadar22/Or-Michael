@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Hospitalized = new mongoose.Schema(
+const HospitalizedSchema = new mongoose.Schema(
   {
     fullName: {
       type: String,
@@ -27,11 +27,12 @@ const Hospitalized = new mongoose.Schema(
       require: true,
     },
 
-    hospitalizedPreferences: {
-      type: Array[{ type: Schema.Types.ObjectId, ref: 'Preference' }],
-    },
+    hospitalizedPreferences: [
+      { type: mongoose.Types.ObjectId, ref: 'VolunteerAdSchema' },
+    ],
+
     responsibleCoordinator: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: 'Coordinator',
     },
   },
@@ -40,4 +41,7 @@ const Hospitalized = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Hospitalized', Hospitalized);
+export const Hospitalized = mongoose.model(
+  'HospitalizedSchema',
+  HospitalizedSchema
+);

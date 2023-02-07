@@ -1,10 +1,27 @@
 import mongoose from 'mongoose';
 
-const Coordinator = new mongoose.Schema({
-  name: {
-    type: String,
-    require: true,
-  },
-});
+const CoordinatorSchema = new mongoose.Schema(
+  {
+    volunteerAd: [{ type: mongoose.Types.ObjectId, ref: 'VolunteerAdSchema' }],
 
-module.exports = mongoose.model('Coordinator', Coordinator);
+    name: {
+      type: String,
+      require: true,
+    },
+    isAdmin: {
+      type: Boolean,
+      require: true,
+    },
+    hospital: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export const Coordinator = mongoose.model(
+  'CoordinatorSchema',
+  CoordinatorSchema
+);

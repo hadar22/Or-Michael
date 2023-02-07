@@ -2,10 +2,10 @@ import mongoose from 'mongoose';
 
 const VolunteerAdSchema = new mongoose.Schema(
   {
-    // organizerCoordinator: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Coordinator',
-    // },
+    organizerCoordinator: {
+      type: mongoose.Types.ObjectId,
+      ref: 'CoordinatorSchema',
+    },
     title: {
       type: String,
       require: true,

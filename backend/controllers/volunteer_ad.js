@@ -14,12 +14,17 @@ const getAllVolunteerAds = async (req, res) => {
 
 //Get volunteer ad
 const getVolunteerAd = async (req, res, next) => {
-  const { id: volunteer_adID } = req.params;
-  const volunteer_ad = await VolunteerAd.findOne({ _id: taskID });
-  if (!volunteer_ad) {
-    return next(
-      createCustomError(`No volunteer ad with id: ${volunteer_adID}`, 404)
-    );
+  try {
+    const { id: volunteer_adID } = req.params;
+    const volunteer_ad = await VolunteerAd.findOne({ _id: taskID });
+    if (!volunteer_ad) {
+      return next(
+        createCustomError(`No volunteer ad with id: ${volunteer_adID}`, 404)
+      );
+    }
+    res.status(200).json({ volunteer_ads });
+  } catch (error) {
+    res.status(400).json({ error });
   }
 };
 
@@ -35,35 +40,43 @@ const createNewVolunteerAd = async (req, res) => {
 
 //Update volunteer ad
 const updateVolunteerAd = async (req, res, next) => {
-  const { id: volunteer_adID } = req.params;
-  const volunteer_ad = await VolunteerAd.findOneAndUpdate(
-    { _id: volunteer_adID },
-    req.body,
-    {
-      new: true,
-      runValidators: true,
-    }
-  );
-  if (!volunteer_ad) {
-    return next(
-      createCustomError(`No volunteer ad with id: ${volunteer_adID}`, 404)
+  try {
+    const { id: volunteer_adID } = req.params;
+    const volunteer_ad = await VolunteerAd.findOneAndUpdate(
+      { _id: volunteer_adID },
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+      }
     );
+    if (!volunteer_ad) {
+      return next(
+        createCustomError(`No volunteer ad with id: ${volunteer_adID}`, 404)
+      );
+    }
+    res.status(200).json({ volunteer_ad });
+  } catch (error) {
+    res.status(400).json({ error });
   }
-  res.status(200).json({ volunteer_ad });
 };
 
 //Delete volunteer ad
 const deleteVolunteerAd = async (req, res, next) => {
-  const { id: volunteer_adID } = req.params;
-  const volunteer_ad = await VolunteerAd.findOneAndDelete({
-    _id: volunteer_adID,
-  });
-  if (!volunteer_ad) {
-    return next(
-      createCustomError(`No volunteer ad with id: ${volunteer_adID}`, 404)
-    );
+  try {
+    const { id: volunteer_adID } = req.params;
+    const volunteer_ad = await VolunteerAd.findOneAndDelete({
+      _id: volunteer_adID,
+    });
+    if (!volunteer_ad) {
+      return next(
+        createCustomError(`No volunteer ad with id: ${volunteer_adID}`, 404)
+      );
+    }
+    res.status(200).json({ volunteer_ad });
+  } catch (error) {
+    res.status(400).json({ error });
   }
-  res.status(200).json({ volunteer_ad });
 };
 export {
   getAllVolunteerAds,

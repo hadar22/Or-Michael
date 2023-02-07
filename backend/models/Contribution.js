@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Contribution = new mongoose.Schema(
+const ContributionSchema = new mongoose.Schema(
   {
     organizationName: {
       type: String,
@@ -10,9 +10,10 @@ const Contribution = new mongoose.Schema(
       type: String,
       require: true,
     },
-    contributionPreferences: {
-      type: Array[{ type: Schema.Types.ObjectId, ref: 'Preference' }],
-    },
+    contributionPreferences: [
+      { type: mongoose.Types.ObjectId, ref: 'Preference' },
+    ],
+
     textArea: {
       type: String,
     },
@@ -25,4 +26,7 @@ const Contribution = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Contribution', Contribution);
+export const Contribution = mongoose.model(
+  'ContributionSchema',
+  ContributionSchema
+);

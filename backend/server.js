@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import volunteer_ad from './routes/volunteer_ad.js';
+import coordinator from './routes/coordinator.js';
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ app.listen(PORT, () => console.log(`Server is listening on ${PORT}...✅ `));
 // });
 
 app.use(`/api/v1/volunteer/ad`, volunteer_ad);
+app.use(`/api/v1/admin`, coordinator);
 
 // MongoDB Setup
 mongoose.set('strictQuery', false);
