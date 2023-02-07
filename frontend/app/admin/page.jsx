@@ -24,6 +24,11 @@ const page = () => {
           </div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
+            <Input placeholder_text="קישור לתמונה" />
+          </div>
+        </div>
+        <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <Input placeholder_text="תאריך" />
           </div>
