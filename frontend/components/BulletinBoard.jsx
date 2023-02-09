@@ -7,12 +7,12 @@ const BulletinBoard = ({ volunteer_ads }) => {
       <div>Searchbar component</div>
 
       <div>
-        {volunteer_ads.map((ad) => {
-          <VolunteerAd prop={ad} />;
-        })}
+       
       </div>
     </>
   );
 };
-
+//  {volunteer_ads.map((ad) => {
+//           <VolunteerAd prop={ad} />;
+//         })}
 export default BulletinBoard;
