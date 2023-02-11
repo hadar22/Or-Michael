@@ -3,13 +3,13 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import volunteer_ad from './routes/volunteer_ad.js';
 import coordinator from './routes/coordinator.js';
-
+import cors from 'cors'
 const app = express();
 dotenv.config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors());
 const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => console.log(`Server is listening on ${PORT}...✅ `));
 
