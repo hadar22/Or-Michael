@@ -14,7 +14,9 @@ const VolunteerAdSchema = new mongoose.Schema(
     hospital: {
       type: String,
     },
-
+    volunteeringTime: {
+      type: String,
+    },
     volunteeringDate: {
       type: Date,
     },

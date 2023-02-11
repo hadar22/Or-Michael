@@ -4,15 +4,14 @@ import BulletinBoard from '../components/BulletinBoard';
 // import { DATA } from '@/fake_data/data';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
-const VolunteerAdsUrl = 'http://localhost:5001/api/v1/volunteer/ad';
+const VolunteerAdsURL = 'http://localhost:5001/api/v1/volunteer/ad';
 
 export default function Home() {
   const [volunteerAds, setVolunteerAds] = useState([]);
 
   useEffect(() => {
     axios
-      .get(VolunteerAdsUrl)
+      .get(VolunteerAdsURL)
       .then((response) => {
         // handle success
         console.log(response);
