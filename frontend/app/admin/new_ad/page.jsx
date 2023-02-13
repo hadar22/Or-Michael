@@ -1,9 +1,15 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-
 import axios from 'axios';
 
 const VolunteerAdsURL = 'http://localhost:5001/api/v1/volunteer/ad';
+
+let axiosConfig = {
+  headers: {
+    'Content-Type': 'application/json;charset=UTF-8',
+    'Access-Control-Allow-Origin': '*',
+  },
+};
 
 const page = () => {
   // const hospitals = [
@@ -14,8 +20,8 @@ const page = () => {
   // ];
 
   const [newVolunteerAd, setNewVolunteerAd] = useState({
-    volunteers: ['הדר', 'דניאל', 'חסי', 'חסי'],
     organizerCoordinator: 'אורית',
+    volunteers: ['הדר', 'דניאל', 'חסי', 'חסי'],
     title: '',
     hospital: '',
     volunteeringDate: '',
@@ -26,10 +32,9 @@ const page = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target.value;
     setNewVolunteerAd((prevState) => ({
       ...prevState,
-      [name]: value,
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -38,29 +43,24 @@ const page = () => {
 
     setNewVolunteerAd((prevState) => ({
       ...prevState,
-      title: newVolunteerAd.title,
-      hospital: newVolunteerAd.describe,
-      volunteeringDate: newVolunteerAd.volunteeringDate,
-      volunteeringTime: newVolunteerAd.volunteeringTime,
-      describe: newVolunteerAd.describe,
-      photo: newVolunteerAd.photo,
-      volunteersNumber: Number(newVolunteerAd.volunteersNumber),
+      [e.target.name]: e.target.value,
     }));
-
     console.log(newVolunteerAd);
 
-    // axios
-    //   .post(VolunteerAdsURL, {
-    //     newVolunteerAd,
-    //   })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    axios
+      .post(VolunteerAdsURL, JSON.stringify(newVolunteerAd), axiosConfig)
+
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
+  // useEffect(() => {
+  //   // required action here
+  // }, [newVolunteerAd]); // watch changes here
   return (
     <>
       <div className="w-full flex flex-col items-center">
@@ -73,9 +73,9 @@ const page = () => {
             <input
               onChange={handleChange}
               type="text"
-              value={newVolunteerAd.title}
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer text-end"
               name="title"
+              value={newVolunteerAd.title}
               placeholder="כותרת מודעה"
               required
             />
@@ -84,9 +84,9 @@ const page = () => {
           <div className="relative z-0 w-full mb-6 group">
             <textarea
               onChange={handleChange}
-              value={newVolunteerAd.describe}
               rows="4"
               name="describe"
+              vlaue={newVolunteerAd.describe}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 text-end"
               placeholder="תיאור התנדבות"
               required
@@ -104,8 +104,8 @@ const page = () => {
 
               <input
                 onChange={handleChange}
-                value={newVolunteerAd.photo}
                 name="photo"
+                vlaue={newVolunteerAd.photo}
                 className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400"
                 aria-describedby="file_input_help"
                 id="file_input"
@@ -127,8 +127,8 @@ const page = () => {
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer text-end"
                 type="text"
                 name="volunteersNumber"
-                value={newVolunteerAd.volunteersNumber}
                 onChange={handleChange}
+                value={newVolunteerAd.volunteersNumber}
                 placeholder="כמות מתנדבים"
               />
             </div>
@@ -136,9 +136,9 @@ const page = () => {
               <input
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer text-end"
                 type="text"
+                value={newVolunteerAd.hospital}
                 onChange={handleChange}
                 name="hospital"
-                value={newVolunteerAd.hospital}
                 placeholder="בית חולים"
               />
             </div>
@@ -148,8 +148,8 @@ const page = () => {
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer text-end"
                 type="text"
                 name="volunteeringDate"
-                value={newVolunteerAd.volunteeringDate}
                 onChange={handleChange}
+                value={newVolunteerAd.volunteeringDate}
                 placeholder="תאריך"
               />
             </div>
@@ -158,9 +158,9 @@ const page = () => {
               <input
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer text-end"
                 type="text"
-                value={newVolunteerAd.volunteeringTime}
                 onChange={handleChange}
                 name="volunteeringTime"
+                value={newVolunteerAd.volunteeringTime}
                 placeholder="שעה"
               />
             </div>

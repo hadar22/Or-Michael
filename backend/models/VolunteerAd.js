@@ -2,14 +2,16 @@ import mongoose from 'mongoose';
 
 const VolunteerAdSchema = new mongoose.Schema(
   {
+    // organizerCoordinator: {
+    //   type: mongoose.Types.ObjectId,
+    //   ref: 'CoordinatorSchema',
+    // },
     organizerCoordinator: {
-      type: mongoose.Types.ObjectId,
-      ref: 'CoordinatorSchema',
+      type: String,
     },
     title: {
       type: String,
       require: true,
-      unique: true,
     },
     hospital: {
       type: String,
@@ -18,7 +20,7 @@ const VolunteerAdSchema = new mongoose.Schema(
       type: String,
     },
     volunteeringDate: {
-      type: Date,
+      type: String,
     },
 
     describe: {
@@ -29,10 +31,11 @@ const VolunteerAdSchema = new mongoose.Schema(
       type: String,
     },
     volunteersNumber: {
-      type: Number,
+      type: String,
     },
     //how many volunteers missing
-    volunteers: [{ type: mongoose.Types.ObjectId, ref: 'VolunteerSchema' }],
+    // volunteers: [{ type: mongoose.Types.ObjectId, ref: 'VolunteerSchema' }],
+    volunteers: [String],
   },
   {
     timestamps: true,

@@ -11,7 +11,11 @@ const BulletinBoard = ({ volunteer_ads }) => {
     <>
       <div>
         <div>Searchbar component</div>
-        <div className="flex flex-row">{renderList}</div>
+        <div>
+          <div className="grid md:grid-cols-3  gap-4 absolute">
+            {renderList}
+          </div>
+        </div>
       </div>
     </>
   );
