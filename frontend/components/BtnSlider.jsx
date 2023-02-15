@@ -1,7 +1,5 @@
 import React from "react";
-import leftArrow from "../public/icons/left-arrow.svg";
-import Image from 'next/image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaArrowLeft , FaArrowRight} from 'react-icons/fa';
 
 export default function BtnSlider({ direction, moveSlide }) {
   console.log(direction, moveSlide);
@@ -10,7 +8,7 @@ export default function BtnSlider({ direction, moveSlide }) {
       onClick={moveSlide}
       className={direction === "next" ? "btn-slide next" : "btn-slide prev"}
     >
-        <div>{direction === "next" ? '▶':'◀' }</div> 
+        <div>{direction === "next" ? <FaArrowRight/>:<FaArrowLeft/>  }</div> 
       
     </button>
   );

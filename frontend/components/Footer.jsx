@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const Footer = () => {
   return (
     <footer className="bg-cyan-400">
@@ -26,7 +26,7 @@ const Footer = () => {
             <button className='border-2 p-2 '>כניסת משתמש</button>
         </div>
         <p className="mt-8 text-base leading-6 text-center text-cyan-50">
-            © 2023 Juniors Full Stack Developer.
+            © 2023 Junior Full Stack Developers.
         </p>
         
     </div>
