@@ -14,7 +14,7 @@ export default function FilterBar(props) {
 
   //update fetch request (Ill work on it, not final)
   const fetchUrl =
-    "https://mongozibi.com/api/volunteer" +
+    "https://server/api/v1/volunteer" +
     (hospitalSelected || dateSelected != today ? "?" : "") +
     (hospitalSelected ? "hospital=" + hospitalSelected : "") +
     (hospitalSelected && dateSelected != today ? "&" : "") +
@@ -37,7 +37,7 @@ export default function FilterBar(props) {
         }}
         value={hospitalSelected}
       >
-        <option selected>All</option>
+        <option>All</option>
         {data.map((hospital, index) => {
           return <option key={index}>{hospital}</option>;
         })}
