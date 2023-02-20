@@ -3,8 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import volunteer_ad from './routes/volunteer_ad.js';
 import coordinator from './routes/coordinator.js';
-import cors from 'cors'
-
+import cors from "cors";
 const app = express();
 dotenv.config();
 

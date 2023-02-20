@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0 auto;
+  position: relative;
 }
 .container-slider {
     max-width: 600px;
