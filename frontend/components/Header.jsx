@@ -15,7 +15,7 @@ const Header = () => {
     <div className='mx-5 flex h-20 max-w-screen-xl item-center justify-between xl:mx-auto'>
     <div className=" block fixed left-3 top-0 item-center">
     <Link href="/" >
-      <Image src={logo}  width="150"  height="60" alt="Logo" priority style={{ width: '70%', height: 'auto' }}/>
+      <Image src={logo}  width="150"  height="60" alt="Logo" priority style={{  height: 'auto' }}/>
      
     </Link>
     </div>

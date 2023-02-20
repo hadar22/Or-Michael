@@ -1,9 +1,10 @@
-
+"use client"
 import React from 'react';
-
+import {useRouter} from 'next/navigation'
 const Footer = () => {
+    const router = useRouter()
   return (
-    <footer className="bg-cyan-400">
+    <footer className="bg-cyan-400" >
     <div className="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
         <h5 className='flex flex-wrap justify-center -mx-5 -my-2 text-stone-50 text-lg'>בואו לבקר אותנו ברשתות החברתיות</h5>
         <div className="flex justify-center mt-8 space-x-6">
@@ -23,7 +24,7 @@ const Footer = () => {
             
         </div>
         <div>
-            <button className='border-2 p-2 '>כניסת משתמש</button>
+            <button className='border-2 p-2 ' onClick={()=>router.push('/admin')}>כניסת משתמש</button>
         </div>
         <p className="mt-8 text-base leading-6 text-center text-cyan-50">
             © 2023 Junior Full Stack Developers.

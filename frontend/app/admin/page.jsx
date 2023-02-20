@@ -33,6 +33,8 @@ const page = () => {
   return (
     <div
       style={{
+        paddingTop: "20%",
+        paddingRight: "20%",
         display: "flex",
         flexDirection: "column",
         flexWrap: "wrap",
