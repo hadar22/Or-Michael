@@ -1,6 +1,26 @@
 // import expressAsyncHandler from 'express-async-handler';
 import { Coordinator } from '../models/Coordinator.js';
 import { createCustomError } from '../errors/custom_error.js';
+import  asyncHandler  from 'express-async-handler';
+import {generateToken} from '../config/generateToken.js'
+
+//Login User
+
+const authUser = asyncHandler(async(req,res)=>{
+  const {name,password} = req.body
+  console.log(name+" "+password);
+  const user = await Coordinator.findOne({name})
+  if(user && await user.matchPassword(password) ){
+     res.status(201).json({
+         _id:user._id,
+         name:user.name,
+         token: generateToken(user._id)
+     })
+  }else{
+     res.status(401)
+     .json("Wrong name or Password")
+  }
+})
 
 //Get all Coordinator
 const getAllCoordinator = async (req, res) => {
@@ -29,6 +49,7 @@ const getCoordinator = async (req, res) => {
 //Create coordinator ad
 const createNewCoordinator = async (req, res) => {
   try {
+    console.log(1111);
     const coordinator = await Coordinator.create(req.body);
     res.status(201).json({ coordinator });
   } catch (error) {
@@ -82,4 +103,5 @@ export {
   createNewCoordinator,
   updateCoordinator,
   deleteCoordinator,
+  authUser
 };

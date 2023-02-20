@@ -6,9 +6,11 @@ import {
   createNewCoordinator,
   updateCoordinator,
   deleteCoordinator,
+  authUser,
 } from '../controllers/coordinator.js';
 
 router.post('/', createNewCoordinator);
+router.post('/auth', authUser);
 router.get('/', getAllCoordinator);
 router.get('/:id', getCoordinator);
 router.patch('/:id', updateCoordinator);
