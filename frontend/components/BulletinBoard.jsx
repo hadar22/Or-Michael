@@ -1,4 +1,5 @@
 import React from "react";
+import FilterBar from "./FilterBar";
 
 import VolunteerAd from "../components/VolunteerAd";
 
@@ -7,10 +8,16 @@ const BulletinBoard = ({ volunteer_ads }) => {
     // console.log(item.id)
     <VolunteerAd key={ad._id} ad={ad} />
   ));
+
+
+  //Will be api endpoint for hospitals
+  const hospitals = volunteer_ads.map((ad) => ad.hospital);
+
   return (
     <>
       <div>
-        <div>Searchbar component</div>
+        <FilterBar data={hospitals} />
+
         <div>
           <div className="grid md:grid-cols-3  gap-4 absolute">
             {renderList}
